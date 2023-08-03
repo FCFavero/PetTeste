@@ -8,8 +8,8 @@ namespace API.Teste.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-        "Freezingaa_teste", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        "Freezingaa", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+        };
 
         private readonly ILogger<WeatherForecastController> _logger;
 
@@ -29,5 +29,6 @@ namespace API.Teste.Controllers
             })
             .ToArray();
         }
+
     }
 }
