@@ -18,7 +18,7 @@ namespace API.Teste
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-           // services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
+            //services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
 
         }
 
@@ -32,7 +32,7 @@ namespace API.Teste
             }
 
             app.UseHttpsRedirection();
-           // app.UseAuthentication();
+            //app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllers();

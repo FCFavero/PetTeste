@@ -19,9 +19,9 @@ namespace API.Teste.Controllers
         /// GetAuthorization
         /// </summary>
         /// <returns></returns>
-        //[Authorize(Roles = "VemDoAzure1, VemDoAzure2")]
-        [HttpGet(Name = "GetAuthorization")]
-        public List<UserModel> GetAuthorization()
+        //[Authorize(Roles = "ApiGetOnlyMala")]
+        [HttpGet("/usersFake")]
+        public List<UserModel> UsersFake()
         {
             return nameList;
         }
@@ -31,9 +31,9 @@ namespace API.Teste.Controllers
         ///// </summary>
         ///// <param name="userModel"></param>
         ///// <returns></returns>
-        //[Authorize(Roles = "VemDoAzure1")]
-        [HttpPost(Name = "PostAuthorization")]
-        public List<UserModel> PostAuthorization(UserModel userModel)
+        //[Authorize(Roles = "ApiGetOnlyMala")]
+        [HttpPost("/addUserFake")]
+        public List<UserModel> AddUserFake(UserModel userModel)
         {
             nameList.Add(userModel);
             return nameList;
