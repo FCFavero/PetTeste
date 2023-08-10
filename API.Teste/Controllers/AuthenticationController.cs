@@ -38,5 +38,13 @@ namespace API.Teste.Controllers
             nameList.Add(userModel);
             return nameList;
         }
+
+
+        [Authorize(Roles = "ApiGetOnlyMala")]
+        [HttpGet("/TesteADB")]
+        public IActionResult TesteADB()
+        {
+            return Ok(nameList);
+        }
     }
 }
