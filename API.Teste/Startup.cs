@@ -1,4 +1,7 @@
-﻿using Microsoft.Identity.Web;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.AzureAD.UI;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.Identity.Web;
 
 namespace API.Teste
 {
@@ -14,11 +17,25 @@ namespace API.Teste
 
         public void ConfigureServices(IServiceCollection services)
         {
+
+            services.AddAuthentication(AzureADDefaults.BearerAuthenticationScheme)
+                .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
+
+            services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
+            {
+                options.Authority += "/v2.0";
+                options.Audience = "api://3684d0c2-c53b-48a1-b39e-fcf3ceece1dc";
+                options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters()
+                {
+                    ValidateIssuer = false
+                };
+            });
+
             services.AddControllers();
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
 
-            services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
+            //services.AddMicrosoftIdentityWebApiAuthentication(Configuration);
 
         }
 

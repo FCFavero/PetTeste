@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Teste.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class AuthenticationController : ControllerBase
@@ -40,7 +41,7 @@ namespace API.Teste.Controllers
         }
 
 
-        [Authorize(Roles = "ApiGetOnlyMala")]
+        //[Authorize(Roles = "ApiGetOnlyMala")]
         [HttpGet("/TesteADB")]
         public IActionResult TesteADB()
         {
